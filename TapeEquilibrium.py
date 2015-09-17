@@ -1,6 +1,6 @@
 #100% solution to Tape Equilibrium problem on Codility.com#
-####TIME COMPLEXITY: O(n) SPACE COMPLEXITY: O(1)###
-########################################
+########TIME COMPLEXITY: O(n) SPACE COMPLEXITY: O(1)#######
+###########################################################
 
 def solution(A):
 	sumTotal = 0
