@@ -45,7 +45,7 @@ def solution(A):
 		
     A.sort()
 	
-	# For sorted array, A[i-2] = P, A[i-1] = Q, A[i] = R
+    # For sorted array, A[i-2] = P, A[i-1] = Q, A[i] = R
     for i in xrange(2,len(A)):
         if A[i-2]+A[i-1] > A[i]:
             return 1
