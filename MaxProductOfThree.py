@@ -1,62 +1,52 @@
-#100% Python solution to PassingCars on Codility
+# A non-empty zero-indexed array A consisting of N integers is given. The product of triplet (P, Q, R) equates to A[P] * A[Q] * A[R] (0 ≤ P < Q < R < N).
 
-# A non-empty zero-indexed array A consisting of N integers is given. The consecutive elements of array A represent consecutive cars on a road.
-
-# Array A contains only 0s and/or 1s:
-
-        # 0 represents a car traveling east,
-        # 1 represents a car traveling west.
-
-# The goal is to count passing cars. We say that a pair of cars (P, Q), where 0 ≤ P < Q < N, is passing when P is traveling to the east and Q is traveling to the west.
-
-# For example, consider array A such that:
-  # A[0] = 0
+# For example, array A such that:
+  # A[0] = -3
   # A[1] = 1
-  # A[2] = 0
-  # A[3] = 1
-  # A[4] = 1
+  # A[2] = 2
+  # A[3] = -2
+  # A[4] = 5
+  # A[5] = 6
 
-# We have five pairs of passing cars: (0, 1), (0, 3), (0, 4), (2, 3), (2, 4).
+# contains the following example triplets:
+
+        # (0, 1, 2), product is −3 * 1 * 2 = −6
+        # (1, 2, 4), product is 1 * 2 * 5 = 10
+        # (2, 4, 5), product is 2 * 5 * 6 = 60
+
+# Your goal is to find the maximal product of any triplet.
 
 # Write a function:
 
     # def solution(A)
 
-# that, given a non-empty zero-indexed array A of N integers, returns the number of pairs of passing cars.
+# that, given a non-empty zero-indexed array A, returns the value of the maximal product of any triplet.
 
-# The function should return −1 if the number of pairs of passing cars exceeds 1,000,000,000.
-
-# For example, given:
-  # A[0] = 0
+# For example, given array A such that:
+  # A[0] = -3
   # A[1] = 1
-  # A[2] = 0
-  # A[3] = 1
-  # A[4] = 1
+  # A[2] = 2
+  # A[3] = -2
+  # A[4] = 5
+  # A[5] = 6
 
-# the function should return 5, as explained above.
+# the function should return 60, as the product of triplet (2, 4, 5) is maximal.
 
 # Assume that:
 
-        # N is an integer within the range [1..100,000];
-        # each element of array A is an integer that can have one of the following values: 0, 1.
+        # N is an integer within the range [3..100,000];
+        # each element of array A is an integer within the range [−1,000..1,000].
 
 # Complexity:
 
-        # expected worst-case time complexity is O(N);
+        # expected worst-case time complexity is O(N*log(N));
         # expected worst-case space complexity is O(1), beyond input storage (not counting the storage required for input arguments).
 
 # Elements of input arrays can be modified.
 
-
 def solution(A):
-    count = 0
-    passing = 0
-    for i in xrange(len(A)):
-        if A[i] == 0:
-            count += 1
-        else:
-            passing += count
-        if passing > 1000000000:
-            return -1
-    return passing
+    A.sort()
+    
+    return max((A[-1]*A[0]*A[1]),(A[-1]*A[-2]*A[-3]))
+    
     pass
